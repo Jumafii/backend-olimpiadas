@@ -2,8 +2,8 @@ from typing import Union
 from pydantic import BaseModel
 
 from fastapi import FastAPI
-from users import router as users_router
-from auth import router as auth_router
+from models.users import router as users_router
+from dto.auth import router as auth_router
 
 app = FastAPI()
 
