@@ -1,8 +1,12 @@
+from dotenv import load_dotenv
+load_dotenv()
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1234@localhost:5432/postgres"
+# Obtiene la URL desde variables de entorno
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -14,4 +18,3 @@ def get_db():
         yield db
     finally:
         db.close()
-# esta funcion es para crear una sesion de base de datos y cerrarla al final

@@ -1,17 +1,15 @@
 from fastapi import FastAPI
-from routers.product import router as product_router
-from routers.users import router as users_router
-from routers.auth import router as auth_router
+from routers import product
+from routers import users
+from routers import auth
 from database import engine, Base
-from routers import product, orders, users, auth
+from routers import orders
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.include_router(users_router)
-app.include_router(auth_router)
+app.include_router(users.router)
+app.include_router(auth.router)
 app.include_router(product.router)
 app.include_router(orders.router) 
-
-
