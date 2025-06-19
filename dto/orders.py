@@ -16,7 +16,7 @@ class DetailsResponse(DetailsOrdersCreate):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class OrdersResponse(BaseModel):
     id: int
@@ -27,7 +27,7 @@ class OrdersResponse(BaseModel):
     details: List[DetailsResponse]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ChangeStatusRequest(BaseModel):
     status: str  # "pendiente", "aprobado" o "anulado"

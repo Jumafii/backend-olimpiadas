@@ -15,4 +15,4 @@ class UserResponse(BaseModel):
     rol: str
 
     class Config:
-        from_attributes = True  # Para Pydantic v2
+        from_attributes = True  

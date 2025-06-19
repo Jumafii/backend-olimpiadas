@@ -6,7 +6,7 @@ from datetime import datetime
 class Orders(Base):
     __tablename__ = "orders"
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("usuarios.id"))
+    user_id = Column(Integer, ForeignKey("Users.id"))
     date = Column(DateTime, default=datetime.utcnow)
     price = Column(Float)
     status = Column(String, default="pendiente")
