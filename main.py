@@ -26,6 +26,3 @@ app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(product.router)
 app.include_router(orders.router) 
-
-for route in app.include_router:
-    print(f"{route.path} -> {route.name}")
